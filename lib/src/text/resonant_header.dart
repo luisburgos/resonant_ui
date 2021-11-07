@@ -1,7 +1,7 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
-class Header extends StatelessWidget {
-  const Header(
+class ResonantHeader extends StatelessWidget {
+  const ResonantHeader(
     this.title, {
     Key? key,
   }) : super(key: key);
@@ -20,6 +20,7 @@ class Header extends StatelessWidget {
         title.toUpperCase(),
         style: const TextStyle(
           fontSize: 12,
+          color: Colors.black,
           fontWeight: FontWeight.bold,
           letterSpacing: 2,
         ),

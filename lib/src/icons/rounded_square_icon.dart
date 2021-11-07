@@ -6,7 +6,7 @@ class IconModel {
   final EdgeInsets? padding;
   final Color color;
   final Color iconColor;
-  final Icon? icon;
+  final Widget? icon;
   final double iconSize;
   final double iconBoxSize;
   final BorderRadius? borderRadius;
@@ -45,21 +45,25 @@ class RoundedSquareIcon extends StatelessWidget {
           color: model.iconColor,
         );
 
+    final sizedBoxIcon = SizedBox(
+      width: model.iconBoxSize,
+      height: model.iconBoxSize,
+      child: Center(
+        child: icon,
+      ),
+    );
+
     final child = model.label == null
         ? InkWell(
             splashColor: Colors.blueGrey.shade100, // Splash color
             onTap: model.onTap,
-            child: SizedBox(
-              width: model.iconBoxSize,
-              height: model.iconBoxSize,
-              child: icon,
-            ),
+            child: sizedBoxIcon,
           )
         : SizedBox(
             height: model.iconBoxSize,
             child: TextButton.icon(
               onPressed: model.onTap,
-              icon: icon,
+              icon: sizedBoxIcon,
               label: model.label!,
               style: TextButton.styleFrom(
                 //TODO: Improve isRounded usage

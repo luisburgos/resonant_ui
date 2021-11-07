@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../text/header.dart';
+import '../text/resonant_header.dart';
 import 'rounded_card.dart';
 
 class ConstrainedRoundedCard extends StatelessWidget {
@@ -37,7 +37,7 @@ class ConstrainedRoundedCard extends StatelessWidget {
           children: [
             SizedBox(height: topSpace),
             if (hasTitle) ...[
-              Header(title!),
+              ResonantHeader(title!),
               const Divider(),
             ],
             ...children,
