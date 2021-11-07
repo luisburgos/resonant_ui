@@ -14,6 +14,7 @@ class ConstrainedRoundedCard extends StatelessWidget {
     this.bottomSpace = 16,
     this.mainAxisSize = MainAxisSize.min,
     this.trailing,
+    this.headerPadding,
   }) : super(key: key);
 
   final String? title;
@@ -24,6 +25,7 @@ class ConstrainedRoundedCard extends StatelessWidget {
   final double topSpace;
   final double bottomSpace;
   final MainAxisSize mainAxisSize;
+  final EdgeInsetsGeometry? headerPadding;
 
   bool get hasTitle => title != null;
 
@@ -42,7 +44,7 @@ class ConstrainedRoundedCard extends StatelessWidget {
           children: [
             SizedBox(height: topSpace),
             if (hasTitle) ...[
-              ResonantHeader(title!, trailing),
+              ResonantHeader(title!, trailing, padding: headerPadding),
               const Divider(),
             ],
             ...children,
