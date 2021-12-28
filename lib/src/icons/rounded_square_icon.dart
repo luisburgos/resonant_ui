@@ -55,7 +55,8 @@ class RoundedSquareIcon extends StatelessWidget {
 
     final child = model.label == null
         ? InkWell(
-            splashColor: Colors.blueGrey.shade100, // Splash color
+            splashColor: Colors.blueGrey.shade100,
+            hoverColor: Colors.grey.shade300,
             onTap: model.onTap,
             child: sizedBoxIcon,
           )
