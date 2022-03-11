@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+@Deprecated('Use ResonantText instead')
 class ResonantLabel extends StatelessWidget {
   const ResonantLabel(
     this.title, {
