@@ -3,6 +3,8 @@ description: To evoke a fealing of shared emotion or belief with someone.
 version: 1.0.0
 # homepage: https://www.example.com
 
+publish_to: none
+
 environment:
   sdk: '>=2.14.2 <3.0.0'
   flutter: ">=1.17.0"
@@ -10,6 +12,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  mr_skeleton:
+    path: '../../packages/mr_skeleton'
 
 dev_dependencies:
   flutter_test:
