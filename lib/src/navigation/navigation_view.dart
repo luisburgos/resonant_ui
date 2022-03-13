@@ -3,10 +3,6 @@ import 'package:mr_skeleton/mr_skeleton.dart';
 
 import '../../resonant_ui.dart';
 import 'constants.dart';
-import 'custom_bottom_bar.dart';
-import 'models.dart';
-import 'side_navigation.dart';
-import 'top_bar.dart';
 
 class DashboardView extends StatelessWidget {
   const DashboardView({
@@ -35,11 +31,13 @@ class DashboardView extends StatelessWidget {
   Widget build(BuildContext context) {
     final titleWidget = ResonantLabel.s20(model.title!);
 
-    final settingsWidget = model.settings.asRoundedSquareIcon(
-      displaysLabel: false,
-      onTap: onItemTapped,
-      isSelected: isDesktop && selectedIndex == model.settings.order,
-    );
+    final settingsWidget = model.settings
+        .copyWith(
+          isLabelDisplayed: false,
+          onTap: onItemTapped,
+          isSelected: isDesktop && selectedIndex == model.settings.order,
+        )
+        .asIconView();
 
     return MRSkeleton(
       isLeftExpanded: false,
@@ -51,20 +49,26 @@ class DashboardView extends StatelessWidget {
         selectedIndex: selectedIndex,
         onItemTapped: onItemTapped,
         navigationItems: [
-          model.home.asRoundedSquareIcon(
-            onTap: onItemTapped,
-            isSelected: selectedIndex == model.home.order,
-          ),
+          model.home
+              .copyWith(
+                onTap: onItemTapped,
+                isSelected: selectedIndex == model.home.order,
+              )
+              .asIconView(),
           const SizedBox(height: 16),
-          model.secondary.asRoundedSquareIcon(
-            onTap: onItemTapped,
-            isSelected: selectedIndex == model.secondary.order,
-          ),
+          model.secondary
+              .copyWith(
+                onTap: onItemTapped,
+                isSelected: selectedIndex == model.secondary.order,
+              )
+              .asIconView(),
           const SizedBox(height: 16),
-          model.extra.asRoundedSquareIcon(
-            onTap: onItemTapped,
-            isSelected: selectedIndex == model.extra.order,
-          ),
+          model.extra
+              .copyWith(
+                onTap: onItemTapped,
+                isSelected: selectedIndex == model.extra.order,
+              )
+              .asIconView(),
         ],
         extraItems: [
           model.addIconWidget,
@@ -80,13 +84,15 @@ class DashboardView extends StatelessWidget {
           if (model.darkMode != null &&
               darkModeSettings != null &&
               darkModeSettings!.isEnabled) ...[
-            model.darkMode!.asRoundedSquareIcon(
-              isSelected: darkModeSettings!.isDarkMode,
-              onTap: (index) {
-                if (darkModeSettings!.onDarkModeTap == null) return;
-                darkModeSettings!.onDarkModeTap!();
-              },
-            ),
+            model.darkMode!
+                .copyWith(
+                  isSelected: darkModeSettings!.isDarkMode,
+                  onTap: (index) {
+                    if (darkModeSettings!.onDarkModeTap == null) return;
+                    darkModeSettings!.onDarkModeTap!();
+                  },
+                )
+                .asIconView(),
             const SizedBox(width: 16),
           ],
           /*_ProfilePopUpCardNavigationIcon(
@@ -119,7 +125,7 @@ class DashboardView extends StatelessWidget {
             title: model.title != null ? titleWidget : null,
             leading: Builder(builder: (context) {
               return _TopIconContainer(
-                child: model.drawerIcon.asRoundedSquareIcon(
+                child: model.drawerIcon.copyWith(
                   onTap: (index) {
                     if (Scaffold.of(context).isDrawerOpen) {
                       Navigator.of(context).pop();
@@ -127,7 +133,7 @@ class DashboardView extends StatelessWidget {
                       Scaffold.of(context).openDrawer();
                     }
                   },
-                ),
+                ).asIconView(),
               );
             }),
             automaticallyImplyLeading: false,
@@ -143,23 +149,31 @@ class DashboardView extends StatelessWidget {
                   selectedIndex: selectedIndex,
                   onItemTapped: onItemTapped,
                   items: [
-                    model.home.asRoundedSquareIcon(
-                      onTap: onItemTapped,
-                      isSelected: selectedIndex == model.home.order,
-                    ),
-                    model.secondary.asRoundedSquareIcon(
-                      onTap: onItemTapped,
-                      isSelected: selectedIndex == model.secondary.order,
-                    ),
+                    model.home
+                        .copyWith(
+                          onTap: onItemTapped,
+                          isSelected: selectedIndex == model.home.order,
+                        )
+                        .asIconView(),
+                    model.secondary
+                        .copyWith(
+                          onTap: onItemTapped,
+                          isSelected: selectedIndex == model.secondary.order,
+                        )
+                        .asIconView(),
                     model.addIconWidget,
-                    model.extra.asRoundedSquareIcon(
-                      onTap: onItemTapped,
-                      isSelected: selectedIndex == model.extra.order,
-                    ),
-                    model.profile.asRoundedSquareIcon(
-                      onTap: onItemTapped,
-                      isSelected: selectedIndex == model.profile.order,
-                    ),
+                    model.extra
+                        .copyWith(
+                          onTap: onItemTapped,
+                          isSelected: selectedIndex == model.extra.order,
+                        )
+                        .asIconView(),
+                    model.profile
+                        .copyWith(
+                          onTap: onItemTapped,
+                          isSelected: selectedIndex == model.profile.order,
+                        )
+                        .asIconView(),
                   ],
                 )
               : null,
@@ -168,22 +182,30 @@ class DashboardView extends StatelessWidget {
                   selectedIndex: selectedIndex,
                   onItemTapped: onItemTapped,
                   items: [
-                    model.home.asRoundedSquareIcon(
-                      onTap: onItemTapped,
-                      isSelected: selectedIndex == model.home.order,
-                    ),
-                    model.secondary.asRoundedSquareIcon(
-                      onTap: onItemTapped,
-                      isSelected: selectedIndex == model.secondary.order,
-                    ),
-                    model.extra.asRoundedSquareIcon(
-                      onTap: onItemTapped,
-                      isSelected: selectedIndex == model.extra.order,
-                    ),
-                    model.profile.asRoundedSquareIcon(
-                      onTap: onItemTapped,
-                      isSelected: selectedIndex == model.profile.order,
-                    ),
+                    model.home
+                        .copyWith(
+                          onTap: onItemTapped,
+                          isSelected: selectedIndex == model.home.order,
+                        )
+                        .asIconView(),
+                    model.secondary
+                        .copyWith(
+                          onTap: onItemTapped,
+                          isSelected: selectedIndex == model.secondary.order,
+                        )
+                        .asIconView(),
+                    model.extra
+                        .copyWith(
+                          onTap: onItemTapped,
+                          isSelected: selectedIndex == model.extra.order,
+                        )
+                        .asIconView(),
+                    model.profile
+                        .copyWith(
+                          onTap: onItemTapped,
+                          isSelected: selectedIndex == model.profile.order,
+                        )
+                        .asIconView(),
                   ],
                 )
               : null,

@@ -21,19 +21,21 @@ class DashboardModel {
   });
 
   final String? title;
+
+  /// TODO: Change to NavigationIconData class
   final Widget expandIcon;
   final Widget addIconWidget;
 
-  final NavigationIconModel drawerIcon;
-  final NavigationIconModel home;
-  final NavigationIconModel secondary;
-  final NavigationIconModel extra;
-  final NavigationIconModel profile;
-  final NavigationIconModel settings;
-  final NavigationIconModel collapseIcon;
-  final NavigationIconModel addIcon;
-  final NavigationIconModel? darkMode;
-  final NavigationIconModel? search;
+  final NavigationIconData drawerIcon;
+  final NavigationIconData home;
+  final NavigationIconData secondary;
+  final NavigationIconData extra;
+  final NavigationIconData profile;
+  final NavigationIconData settings;
+  final NavigationIconData collapseIcon;
+  final NavigationIconData addIcon;
+  final NavigationIconData? darkMode;
+  final NavigationIconData? search;
   final DashboardMode mode;
 }
 
@@ -52,45 +54,4 @@ class DarkModeSettings {
   final Function()? onDarkModeTap;
   final bool isDarkMode;
   final bool isEnabled;
-}
-
-abstract class NavigationIconModel {
-  int? order;
-  IconData get iconData;
-  String? get label;
-  late Widget Function(IconData, {int size, Color color}) iconBuilder;
-
-  RoundedSquareIcon asRoundedSquareIcon({
-    bool displaysLabel = false,
-    Color iconColor = Colors.black,
-    Color color = Colors.white,
-    Function(int?)? onTap,
-    bool isSelected = false,
-    bool isRounded = true,
-    BorderRadius? borderRadius,
-  }) {
-    return RoundedSquareIcon(
-      model: IconModel(
-        icon: iconBuilder(
-          iconData,
-          size: 20,
-          color: isSelected ? color : iconColor,
-        ),
-        color: isSelected ? iconColor : color,
-        isRounded: isRounded,
-        borderRadius: borderRadius,
-        label: (label != null && displaysLabel)
-            ? SizedBox(
-                width: 200,
-                child: ResonantLabel(label!),
-              )
-            : null,
-        onTap: onTap == null
-            ? null
-            : () {
-                onTap(order);
-              },
-      ),
-    );
-  }
 }

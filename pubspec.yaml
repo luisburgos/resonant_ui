@@ -13,6 +13,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # Remove FontAwesome dependency when custom Icons are added to the project.
+  font_awesome_flutter: 9.2.0
   mr_skeleton:
     path: '../../packages/mr_skeleton'
 
