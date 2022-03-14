@@ -44,7 +44,8 @@ class ConstrainedRoundedCard extends StatelessWidget {
           children: [
             SizedBox(height: topSpace),
             if (hasTitle) ...[
-              ResonantHeader(title!, trailing, padding: headerPadding),
+              ResonantHeader(title!,
+                  trailing: trailing, padding: headerPadding),
               const Divider(),
             ],
             ...children,
