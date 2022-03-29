@@ -123,7 +123,7 @@ class DashboardView extends StatelessWidget {
             elevation: 0,
             centerTitle: false,
             title: model.title != null ? titleWidget : null,
-            leading: Builder(builder: (context) {
+            leading: isDrawer ? Builder(builder: (context) {
               return _TopIconContainer(
                 child: model.drawerIcon.copyWith(
                   onTap: (index) {
@@ -135,7 +135,7 @@ class DashboardView extends StatelessWidget {
                   },
                 ).asIconView(),
               );
-            }),
+            }) : null,
             automaticallyImplyLeading: false,
             backgroundColor: Colors.transparent,
             actions: [
