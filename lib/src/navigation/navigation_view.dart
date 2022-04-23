@@ -53,7 +53,6 @@ class DashboardView extends StatelessWidget {
       left: SideNavigation(
         expandIcon: model.expandIcon,
         selectedIndex: selectedIndex,
-        onItemTapped: onItemTapped,
         navigationItems: [
           model.home
               .copyWith(

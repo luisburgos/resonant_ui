@@ -7,13 +7,11 @@ class SideNavigation extends StatelessWidget {
     Key? key,
     required this.navigationItems,
     required this.selectedIndex,
-    required this.onItemTapped,
     this.extraItems,
     this.expandIcon,
     this.isExpanded = false,
   }) : super(key: key);
 
-  final Function(int?) onItemTapped;
   final int selectedIndex;
   final bool isExpanded;
   final List<Widget> navigationItems;
