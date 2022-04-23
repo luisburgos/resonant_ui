@@ -20,6 +20,7 @@ class DashboardModel {
     this.mode = DashboardMode.drawer,
   });
 
+  @Deprecated('TODO: Remove attribute')
   final String? title;
 
   /// TODO: Change to NavigationIconData class

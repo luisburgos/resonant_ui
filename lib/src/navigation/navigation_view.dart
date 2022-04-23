@@ -7,6 +7,7 @@ import 'constants.dart';
 class DashboardView extends StatelessWidget {
   const DashboardView({
     Key? key,
+    required this.title,
     required this.model,
     required this.body,
     required this.selectedIndex,
@@ -16,6 +17,7 @@ class DashboardView extends StatelessWidget {
     this.darkModeSettings,
   }) : super(key: key);
 
+  final String? title;
   final Function(bool)? onDesktopBreakpointChanged;
   final Function(int?) onItemTapped;
   final int selectedIndex;
@@ -29,7 +31,11 @@ class DashboardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final titleWidget = ResonantLabel.s20(model.title!);
+    ///TODO: Evaluate use of best practices using Container() instead of null.
+    Widget titleWidget = Container();
+    if (title != null) {
+      titleWidget = ResonantLabel.s20(title!);
+    }
 
     final settingsWidget = model.settings
         .copyWith(
@@ -122,20 +128,22 @@ class DashboardView extends StatelessWidget {
           appBar: AppBar(
             elevation: 0,
             centerTitle: false,
-            title: model.title != null ? titleWidget : null,
-            leading: isDrawer ? Builder(builder: (context) {
-              return _TopIconContainer(
-                child: model.drawerIcon.copyWith(
-                  onTap: (index) {
-                    if (Scaffold.of(context).isDrawerOpen) {
-                      Navigator.of(context).pop();
-                    } else {
-                      Scaffold.of(context).openDrawer();
-                    }
-                  },
-                ).asIconView(),
-              );
-            }) : null,
+            title: titleWidget,
+            leading: isDrawer
+                ? Builder(builder: (context) {
+                    return _TopIconContainer(
+                      child: model.drawerIcon.copyWith(
+                        onTap: (index) {
+                          if (Scaffold.of(context).isDrawerOpen) {
+                            Navigator.of(context).pop();
+                          } else {
+                            Scaffold.of(context).openDrawer();
+                          }
+                        },
+                      ).asIconView(),
+                    );
+                  })
+                : null,
             automaticallyImplyLeading: false,
             backgroundColor: Colors.transparent,
             actions: [
