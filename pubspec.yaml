@@ -12,8 +12,8 @@ dependencies:
     sdk: flutter
 
   # Remove FontAwesome dependency when custom Icons are added to the project.
-  font_awesome_flutter: 9.2.0
-  mr_skeleton: 0.0.1
+  font_awesome_flutter: ^9.2.0
+  mr_skeleton: ^0.0.1
 
 dev_dependencies:
   flutter_test:
