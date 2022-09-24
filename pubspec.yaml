@@ -1,9 +1,7 @@
 name: resonant_ui
 description: To evoke a fealing of shared emotion or belief with someone.
-version: 1.0.0
-# homepage: https://www.example.com
-
-publish_to: none
+version: 0.0.1
+homepage: https://github.com/luisburgos/resonant_ui
 
 environment:
   sdk: '>=2.14.2 <3.0.0'
@@ -15,10 +13,7 @@ dependencies:
 
   # Remove FontAwesome dependency when custom Icons are added to the project.
   font_awesome_flutter: 9.2.0
-  mr_skeleton:
-    git:
-      url: git@github.com:LuisBurgos/mr_skeleton.git
-      ref: main
+  mr_skeleton: 0.0.1
 
 dev_dependencies:
   flutter_test:
